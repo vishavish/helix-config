@@ -1,0 +1,46 @@
+[language-server.typescript-language-server]
+config = { format = { "semicolons" = "insert", "insertSpaceBeforeFunctionParenthesis" = true } }
+
+[language-server.emmet-ls]
+args = ["--stdio"]
+command = "emmet-ls"
+
+[language-server.vscode-css-language-server.config]
+css = { validate = { enable = true } }
+scss = { validate = { enable = true } }
+less = { validate = { enable = true } }
+provideFormatter = true
+
+[[language]]
+name = "typescript"
+language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "efm-lsp-prettier" ]
+
+[[language]]
+name = "elixir"
+scope = "source.elixir"
+injection-regex = "elixir"
+file-types = ["ex", "exs"]
+roots = ["mix.exs"]
+auto-format = true
+diagnostic-severity = "Hint"
+comment-token = "#"
+indent = {tab-width = 2, unit = " "}
+language-server = {command = "elixir-ls"}
+
+[[language]]
+name = "html"
+language-servers = [ "vscode-html-language-server", "emmet-ls" ]
+
+[[language]]
+name = "css"
+language-servers = [ "vscode-css-language-server", "emmet-ls" ]
+
+[[language]]
+name = "c-sharp"
+scope = "source.cs"
+injection-regex = "c-sharp"
+roots = ["sln", "csproj"]
+file-types = ["cs", "cshtml"]
+comment-token = "//"
+indent = { tab-width = 4, unit = " " }
+language-server = { command = "omnisharp", args = ["-lsp"], timeout=10000 } 

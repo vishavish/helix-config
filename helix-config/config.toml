@@ -1,0 +1,44 @@
+theme= "sonokai_atlantis"
+
+[editor]
+line-number = "relative"
+idle-timeout = 0
+mouse = false
+
+[editor.statusline]
+left = ["mode", "spinner", "file-modification-indicator", "read-only-indicator", "version-control"]
+center = ["file-name"]
+right = ["diagnostics", "register", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.lsp]
+display-inlay-hints = true
+
+[keys.normal]
+"tab" = "indent"
+"S-tab" = "unindent"
+"<" = "no_op"
+">" = "no_op"
+H = ":buffer-previous"
+L = ":buffer-next"
+"C-q" = ":buffer-close"
+
+[keys.select]
+"tab" = "indent"
+"S-tab" = "unindent"
+"<" = "no_op"
+">" = "no_op"
+
+[keys.insert]
+"C-backspace" = "delete_word_backward"
+"C-w" = "no_op"
+"C-right" = "move_next_long_word_start"
+"C-left" = "move_prev_word_start"
